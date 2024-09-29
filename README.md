@@ -1,1 +1,1 @@
-# hydroponis_controller_fw
+# Hydroponics Controller Firmware
