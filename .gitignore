@@ -1,0 +1,9 @@
+build/**
+
+# VScode environment
+.vscode/**
+
+# cmake environment (for future improvement)
+cmake/** 
+
+
