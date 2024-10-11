@@ -44,7 +44,12 @@
 ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc4;
 
+CRYP_HandleTypeDef hcryp;
+uint32_t pKeyAES[8] = {0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000};
+
 CRC_HandleTypeDef hcrc;
+
+HASH_HandleTypeDef hhash;
 
 I2C_HandleTypeDef hi2c1;
 
@@ -84,6 +89,8 @@ static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_ADC4_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_AES_Init(void);
+static void MX_HASH_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -137,6 +144,8 @@ int main(void)
   MX_TIM3_Init();
   MX_ADC4_Init();
   MX_I2C1_Init();
+  MX_AES_Init();
+  MX_HASH_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -363,6 +372,40 @@ static void MX_ADC4_Init(void)
 }
 
 /**
+  * @brief AES Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_AES_Init(void)
+{
+
+  /* USER CODE BEGIN AES_Init 0 */
+
+  /* USER CODE END AES_Init 0 */
+
+  /* USER CODE BEGIN AES_Init 1 */
+
+  /* USER CODE END AES_Init 1 */
+  hcryp.Instance = AES;
+  hcryp.Init.DataType = CRYP_NO_SWAP;
+  hcryp.Init.KeySize = CRYP_KEYSIZE_256B;
+  hcryp.Init.pKey = (uint32_t *)pKeyAES;
+  hcryp.Init.Algorithm = CRYP_AES_ECB;
+  hcryp.Init.DataWidthUnit = CRYP_DATAWIDTHUNIT_WORD;
+  hcryp.Init.HeaderWidthUnit = CRYP_HEADERWIDTHUNIT_WORD;
+  hcryp.Init.KeyIVConfigSkip = CRYP_KEYIVCONFIG_ALWAYS;
+  hcryp.Init.KeyMode = CRYP_KEYMODE_NORMAL;
+  if (HAL_CRYP_Init(&hcryp) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN AES_Init 2 */
+
+  /* USER CODE END AES_Init 2 */
+
+}
+
+/**
   * @brief CRC Initialization Function
   * @param None
   * @retval None
@@ -424,6 +467,32 @@ static void MX_GPDMA1_Init(void)
   /* USER CODE BEGIN GPDMA1_Init 2 */
 
   /* USER CODE END GPDMA1_Init 2 */
+
+}
+
+/**
+  * @brief HASH Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_HASH_Init(void)
+{
+
+  /* USER CODE BEGIN HASH_Init 0 */
+
+  /* USER CODE END HASH_Init 0 */
+
+  /* USER CODE BEGIN HASH_Init 1 */
+
+  /* USER CODE END HASH_Init 1 */
+  hhash.Init.DataType = HASH_DATATYPE_32B;
+  if (HAL_HASH_Init(&hhash) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN HASH_Init 2 */
+
+  /* USER CODE END HASH_Init 2 */
 
 }
 
