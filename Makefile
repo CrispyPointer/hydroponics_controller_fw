@@ -88,7 +88,15 @@ Core/Src/syscalls.c \
 Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cryp.c \
 Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cryp_ex.c \
 Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash_ex.c
+Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash_ex.c \
+Components/Src/authentication/authentication.c \
+Components/Src/bootloader.c \
+Components/Src/console.c \
+Components/Src/commands.c \
+Components/Src/nvic.c \
+Components/Src/timer.c \
+Components/Src/uart.c \
+Components/Src/rtc.c \
 
 # ASM sources
 ASM_SOURCES =  \
@@ -158,8 +166,9 @@ C_INCLUDES =  \
 -IMiddlewares/Third_Party/FreeRTOS/Source/include/ \
 -IMiddlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/ \
 -IMiddlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/ \
--IMiddlewares/Third_Party/CMSIS/RTOS2/Include/
-
+-IMiddlewares/Third_Party/CMSIS/RTOS2/Include/ \
+-IComponents/Inc \
+-IComponents/Inc/authentication \
 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
@@ -228,7 +237,12 @@ $(BUILD_DIR):
 #######################################
 clean:
 	-rm -fR $(BUILD_DIR)
-  
+
+#######################################
+# Flash
+#######################################
+flash:
+	STM32_Programmer_CLI -c port=SWD -w build/${TARGET}.hex -rst
 #######################################
 # dependencies
 #######################################

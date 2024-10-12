@@ -1,0 +1,2 @@
+# Ignore third_party code from clang-format checks
+./Drivers/**
