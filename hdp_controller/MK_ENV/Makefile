@@ -13,7 +13,7 @@
 ######################################
 # target
 ######################################
-TARGET = hydroponics_controller
+TARGET = hdp_controller
 
 
 ######################################
@@ -29,74 +29,74 @@ OPT = -Og
 # paths
 #######################################
 # Build path
-BUILD_DIR = build
+BUILD_DIR = hpd_controller_build
 
 ######################################
 # source
 ######################################
 # C sources
 C_SOURCES =  \
-Core/Src/main.c \
-Core/Src/app_freertos.c \
-Core/Src/stm32u5xx_it.c \
-Core/Src/stm32u5xx_hal_msp.c \
-Core/Src/stm32u5xx_hal_timebase_tim.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc_ex.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma_ex.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c_ex.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_exti.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gtzc.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_icache.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc_ex.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hcd.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_usb.c \
-Core/Src/system_stm32u5xx.c \
-Middlewares/Third_Party/FreeRTOS/Source/croutine.c \
-Middlewares/Third_Party/FreeRTOS/Source/event_groups.c \
-Middlewares/Third_Party/FreeRTOS/Source/list.c \
-Middlewares/Third_Party/FreeRTOS/Source/queue.c \
-Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c \
-Middlewares/Third_Party/FreeRTOS/Source/tasks.c \
-Middlewares/Third_Party/FreeRTOS/Source/timers.c \
-Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/port.c \
-Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portasm.c \
-Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c \
-Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_1.c \
-Core/Src/sysmem.c \
-Core/Src/syscalls.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cryp.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cryp_ex.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash.c \
-Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash_ex.c \
-Components/Src/authentication/authentication.c \
-Components/Src/bootloader.c \
-Components/Src/console.c \
-Components/Src/commands.c \
-Components/Src/nvic.c \
-Components/Src/timer.c \
-Components/Src/uart.c \
-Components/Src/rtc.c \
+../Src/sysmem.c \
+../Src/syscalls.c \
+../Src/main.c \
+../Src/app_freertos.c \
+../Src/stm32u5xx_it.c \
+../Src/stm32u5xx_hal_msp.c \
+../Src/stm32u5xx_hal_timebase_tim.c \
+../Src/system_stm32u5xx.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc_ex.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma_ex.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c_ex.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_exti.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gtzc.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_icache.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc_ex.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hcd.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_usb.c \
+../../Middlewares/Third_Party/FreeRTOS/Source/croutine.c \
+../../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c \
+../../Middlewares/Third_Party/FreeRTOS/Source/list.c \
+../../Middlewares/Third_Party/FreeRTOS/Source/queue.c \
+../../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c \
+../../Middlewares/Third_Party/FreeRTOS/Source/tasks.c \
+../../Middlewares/Third_Party/FreeRTOS/Source/timers.c \
+../../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/port.c \
+../../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portasm.c \
+../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c \
+../../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_1.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cryp.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cryp_ex.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash.c \
+../../Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash_ex.c \
+../../Components/Src/authentication/authentication.c \
+../../Components/Src/bootloader.c \
+../../Components/Src/console.c \
+../../Components/Src/commands.c \
+../../Components/Src/nvic.c \
+../../Components/Src/timer.c \
+../../Components/Src/uart.c \
+../../Components/Src/rtc.c \
 
 # ASM sources
 ASM_SOURCES =  \
@@ -154,21 +154,21 @@ C_DEFS =  \
 
 # AS includes
 AS_INCLUDES =  \
--ICore/Inc
+-I../Inc
 
 # C includes
 C_INCLUDES =  \
--ICore/Inc \
--IDrivers/STM32U5xx_HAL_Driver/Inc \
--IDrivers/STM32U5xx_HAL_Driver/Inc/Legacy \
--IDrivers/CMSIS/Device/ST/STM32U5xx/Include \
--IDrivers/CMSIS/Include \
--IMiddlewares/Third_Party/FreeRTOS/Source/include/ \
--IMiddlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/ \
--IMiddlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/ \
--IMiddlewares/Third_Party/CMSIS/RTOS2/Include/ \
--IComponents/Inc \
--IComponents/Inc/authentication \
+-I../Inc \
+-I../../Drivers/STM32U5xx_HAL_Driver/Inc \
+-I../../Drivers/STM32U5xx_HAL_Driver/Inc/Legacy \
+-I../../Drivers/CMSIS/Device/ST/STM32U5xx/Include \
+-I../../Drivers/CMSIS/Include \
+-I../../Middlewares/Third_Party/FreeRTOS/Source/include/ \
+-I../../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/ \
+-I../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/ \
+-I../../Middlewares/Third_Party/CMSIS/RTOS2/Include/ \
+-I../../Components/Inc \
+-I../../Components/Inc/authentication \
 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
