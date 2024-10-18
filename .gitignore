@@ -1,9 +1,9 @@
-build/**
-
 # VScode environment
 .vscode/**
 
 # cmake environment (for future improvement)
 cmake/** 
 
+#Build directories
+hdp_controller/MK_ENV/hpd_controller_build/**
 
